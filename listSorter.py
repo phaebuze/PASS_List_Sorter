@@ -2,14 +2,26 @@
 # List sorting program
 
 # List of numbers
-numbers = [1, 3, 4, 17, 25, 32, 71, 90]
+numbers = [3, 4, 115, 25, 17, 32, 90, 71, 1]
 
 
 def maxVal():
-    pass
+    maximum = numbers[0]
+    
+    for num in numbers:
+        if num > maximum:
+            maximum = num
+      
+    return maximum
 
 def minVal():
-    pass
+    minimum = numbers[0]
+
+    for num in numbers:
+        if num < minimum:
+            minimum = num
+
+    return minimum
 
 def sumVal():
     sumVal = 0
@@ -33,10 +45,14 @@ while(not flag):
     print("Choices: \n1. Maximum \n2. Minimum \n3. Sum \n4. Average \n5. Exit")
     choice = int(input("Enter a choice: "))
     if (choice == 1):
-        maxVal()
+        # max of list
+        maximumValue = maxVal()
+        print("Max value of the list: ", maximumValue)
         
     elif(choice == 2):
-        minVal()
+        # min of list
+        minimumValue = minVal()
+        print("Min value of the list: ", minimumValue)
         
     elif(choice == 3):
         # sum of list
@@ -45,10 +61,11 @@ while(not flag):
         
     elif(choice == 4):
         # average of list
-        average = avgVal()
+        average = round(avgVal(), 2)
         print("Average of list values: " + str(average))
         
     elif(choice == 5):
+        # exit the program
         break
     
         
