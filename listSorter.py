@@ -1,8 +1,8 @@
 # Phaedra's PASS Session
 # List sorting program
 
-# List of numbers
-numbers = [3, 4, 115, 25, 17, 32, 90, 71, 1]
+# empty list of numbers
+numbers = []
 
 
 def maxVal():
@@ -14,6 +14,7 @@ def maxVal():
       
     return maximum
 
+
 def minVal():
     minimum = numbers[0]
 
@@ -22,6 +23,7 @@ def minVal():
             minimum = num
 
     return minimum
+
 
 def sumVal():
     sumVal = 0
@@ -40,9 +42,22 @@ def avgVal():
     
     return average
 
+
+def addToList():
+    quitString = "not yet"
+
+    while (quitString != "Q"):
+        number = input("Enter a number, or 'Q' to stop: ")
+
+        if (number == "Q"):
+            quitString = number
+        elif (number.isdecimal()):
+            numbers.append(int(number))
+
+
 flag = False
 while(not flag):
-    print("Choices: \n1. Maximum \n2. Minimum \n3. Sum \n4. Average \n5. Exit")
+    print("Choices: \n1. Maximum \n2. Minimum \n3. Sum \n4. Average \n5. Add numbers \n6. Show all numbers in list\n7. Exit")
     choice = int(input("Enter a choice: "))
     if (choice == 1):
         # max of list
@@ -65,6 +80,16 @@ while(not flag):
         print("Average of list values: " + str(average))
         
     elif(choice == 5):
+        # adding numbers to list
+        addToList()
+        print("Number added to list")
+        
+    elif(choice == 6):
+        # show all numbers
+        for grade in numbers:
+            print("Grade: ", grade, "%")
+
+    elif(choice == 7):
         # exit the program
         break
     
