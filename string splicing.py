@@ -1,4 +1,4 @@
-string = "hello, world!"
+string = "Hello, world!"
 stringLength = 12
 
 # print just the words
@@ -11,13 +11,23 @@ for i in range(stringLength, -1, -1):
 # convert to uppercase
 print(string.upper())
 
-# capitalize first letter
-# string[0].upper()
-print(string)
+# starts with 'Hello'
+startsWith = "Hello"
 
-# starts with 'hello'
-startsWith = "hello"
+string = string.lower()
 
-for i in range(0, srtingLength + 1):
-  
+emptyString = ""
+
+for char in string:
+    print("Char: ", char)
+    emptyString += char
+    print(emptyString)
+    
+    if (emptyString == startsWith):
+        print("matched")
+        break
+
+# simpler version
+if (startsWith in string):
+    print("yes") 
 
