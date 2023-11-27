@@ -2,25 +2,25 @@
 # List sorting program
 
 # empty list of numbers
-numbers = []
+studentGrades = [["John", 95], ["Phaedra", 89]]
 
 
 def maxVal():
-    maximum = numbers[0]
+    maximum = studentGrades[0][1]
     
-    for num in numbers:
-        if num > maximum:
-            maximum = num
+    for student in studentGrades:
+        if student[1] > maximum:
+            maximum = student[1]
       
     return maximum
 
 
 def minVal():
-    minimum = numbers[0]
+    minimum = studentGrades[0][1]
 
-    for num in numbers:
-        if num < minimum:
-            minimum = num
+    for student in studentGrades:
+        if student[1] < minimum:
+            minimum = student[1]
 
     return minimum
 
@@ -28,17 +28,14 @@ def minVal():
 def sumVal():
     sumVal = 0
     
-    for num in numbers:
-        sumVal += num
-
-    # for i in range(0, len(numbers)):
-    #     sumVal += numbers[i]
+    for student in studentGrades:
+        sumVal += student[1]
         
     return sumVal  
 
 def avgVal():
     
-    average = sumVal() / len(numbers)
+    average = sumVal() / len(studentGrades)
     
     return average
 
@@ -47,16 +44,16 @@ def addToList():
     quitString = "not yet"
 
     while (quitString != "Q"):
-        number = input("Enter a number, or 'Q' to stop: ")
+        name = input("Enter your name: ")
+        grade = input("Enter your GPA, or 'Q' to stop: ")
 
-        if (number == "Q"):
-            quitString = number
-        elif (number.isdecimal()):
-            numbers.append(int(number))
+        if (grade == "Q"):
+            quitString = grade
+        elif (grade.isdecimal()):
+            studentGrades.append([name, grade])
 
 
-flag = False
-while(not flag):
+while(True):
     print("Choices: \n1. Maximum \n2. Minimum \n3. Sum \n4. Average \n5. Add numbers \n6. Show all numbers in list\n7. Exit")
     choice = int(input("Enter a choice: "))
     if (choice == 1):
@@ -85,9 +82,9 @@ while(not flag):
         print("Number added to list")
         
     elif(choice == 6):
-        # show all numbers
-        for grade in numbers:
-            print("Grade: ", grade, "%")
+        # show all grades
+        for student in studentGrades:
+            print("Name: ", student[0], " - GPA: ", student[1], "%")
 
     elif(choice == 7):
         # exit the program
